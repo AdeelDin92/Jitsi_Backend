@@ -23,7 +23,7 @@ const demoSchema = require('./Schemas/demoSchema')
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post("https://jitsi-backend.onrender.com/Demographics", async (req , res) => {
+app.post("/Demographics", async (req , res) => {
     console.log(req.body)
     res.send(req.body)
     
