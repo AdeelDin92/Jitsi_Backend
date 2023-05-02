@@ -28,15 +28,14 @@ app.post("/Demographics", async (req , res) => {
     res.send(req.body)
     
     
-    //let demo = new demoSchema();         
-    /*demo.Q1 = req.body.Q1;
+    let demo = new demoSchema();         
+    demo.Q1 = req.body.Q1;
     demo.Q2 = req.body.Q2;
-    demo.Q3 = req.body.Q3;
-    demo.Q4 = req.body.Q4;
+    
     
     const doc = await demo.save();
-    */
-    
+    console.log("Saved in database:" ,doc)
+  
 })
 
 app.listen(4000, () => {
