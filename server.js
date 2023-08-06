@@ -15,29 +15,64 @@ async function main() {
 
 }
 
-
+//Import Schemas
 const demoSchema = require('./Schemas/demoSchema')
+const Tc0 = require("./Schemas/questionairSchema")
+
+
 
 
 
 app.use(cors());
 app.use(bodyParser.json());
 
+
 app.post("/Demographics", async (req , res) => {
-    console.log(req.body)
-    res.send(req.body)
+    //console.log(req.body)
+      //res.send(req.body)     
     
+   
+
+
     
-    let demo = new demoSchema();         
-    demo.Q1 = req.body.Q1;
-    demo.Q2 = req.body.Q2;
-    
+    let demo = new demoSchema({
+        Q1:req.body.Q1,
+        Q2:req.body.Q2
+
+        });       
+   
     
     const doc = await demo.save();
     console.log("Saved in database:" ,doc)
   
 })
 
-app.listen(4000, () => {
-    console.log('Server listening on port 4000');
+app.post("/Questionair", async (req ,res) => { 
+   
+    
+
+
+  let defaultQuestionair = new Tc0({
+    
+    Q1:req.body.Q1,
+    Q2:req.body.Q2,
+    Q3:req.body.Q3,
+    Q4:req.body.Q4,
+    Q5:req.body.Q5,
+    Q6:req.body.Q6
+  });
+  
+
+  const doc =await defaultQuestionair.save();
+  console.log("Saved in database:" ,doc)
+  
+
+
+})
+
+const ipAddress = '127.0.0.1'
+const port = 4000;
+
+app.listen(port,ipAddress, () => {
+    console.log(`Server listening on port ${port}` );
 });
