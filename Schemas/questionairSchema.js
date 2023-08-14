@@ -10,6 +10,8 @@ const questionsSchema = new Schema({
     Q4:String,
     Q5:String,
     Q6:String,
+    Q5_text:String,
+    Q6_text:String
      // String is shorthand for {type: String}
   
 })
