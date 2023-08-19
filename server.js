@@ -60,7 +60,7 @@ app.post("/Demographics", async (req , res) => {
   
 })
 
-app.post("/Questionair_0", async (req ,res) => {   
+app.post("/Questionair_1", async (req ,res) => {   
     
   let defaultQuestionair = new Tc0({
     
@@ -83,7 +83,7 @@ app.post("/Questionair_0", async (req ,res) => {
 
 // Handle second test condition questionair submission and save data to MOngoDB
 
-app.post("/Questionair_1", async (req ,res) => {   
+app.post("/Questionair_2", async (req ,res) => {   
     
   let defaultQuestionair = new Tc1({
     
@@ -106,7 +106,7 @@ app.post("/Questionair_1", async (req ,res) => {
 
 // Handle third test condition questionair submission and save data to MOngoDB
 
-app.post("/Questionair_2", async (req ,res) => {   
+app.post("/Questionair_3", async (req ,res) => {   
     
   let defaultQuestionair = new Tc2({
     
@@ -128,9 +128,9 @@ app.post("/Questionair_2", async (req ,res) => {
 })
 
 
-// Handle third test condition questionair submission and save data to MOngoDB
+// Handle fourth test condition questionair submission and save data to MOngoDB
 
-app.post("/Questionair_3", async (req ,res) => {   
+app.post("/Questionair_4", async (req ,res) => {   
     
   let defaultQuestionair = new Tc3({
     
@@ -153,8 +153,8 @@ app.post("/Questionair_3", async (req ,res) => {
 
 
 
-// Handle condition 0 panas submission and save the data to MongoDB
-app.post('/submit_panas_0', async (req, res) => {
+// Handle condition 1 panas submission and save the data to MongoDB
+app.post('/submit_panas_1', async (req, res) => {
   const {
     active,
     interested,
@@ -194,8 +194,8 @@ app.post('/submit_panas_0', async (req, res) => {
 
 
 
-// Handle condition 1 panas submission and save the data to MongoDB
-app.post('/submit_panas_1', async (req, res) => {
+// Handle condition 2 panas submission and save the data to MongoDB
+app.post('/submit_panas_2', async (req, res) => {
   const {
     active,
     interested,
@@ -240,8 +240,8 @@ app.post('/submit_panas_1', async (req, res) => {
 
 
 
-// Handle condition 2 panas submission and save the data to MongoDB
-app.post('/submit_panas_2', async (req, res) => {
+// Handle condition 3 panas submission and save the data to MongoDB
+app.post('/submit_panas_3', async (req, res) => {
   const {
     active,
     interested,
@@ -285,8 +285,8 @@ app.post('/submit_panas_2', async (req, res) => {
 
 
 
-// Handle condition 3 panas submission and save the data to MongoDB
-app.post('/submit_panas_3', async (req, res) => {
+// Handle condition 4 panas submission and save the data to MongoDB
+app.post('/submit_panas_4', async (req, res) => {
   const {
     active,
     interested,
