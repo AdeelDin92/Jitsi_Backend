@@ -3,17 +3,19 @@ const cors = require('cors')
 const bodyParser = require ('body-parser');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables from .env file
 
-main().catch(err => console.log(err));
+const PORT = process.env.PORT || 4000
 
-async function main() {
-  //await mongoose.connect('mongodb+srv://mythesisusername:Warning_7776@clusterthesis.ldl538f.mongodb.net/mythesisdb?retryWrites=true&w=majority')
-   await mongoose.connect('mongodb+srv://mythesisusername:Warning_7776@clusterthesis.ldl538f.mongodb.net/mythesisdb?retryWrites=true&w=majority');
-  //await mongoose.connect("mongodb+srv://clusterthesis.ldl538f.mongodb.net/mythesisdb" )
-  console.log("db connected")
-
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
 }
-
 //Import Schemas
 const demographics = require('./Schemas/demoSchema')
 const Tc1 = require("./Schemas/questionairSchema1")
@@ -328,9 +330,9 @@ app.post('/submit_panas_4', async (req, res) => {
 
 
 
-const ipAddress = '127.0.0.1'
-const port = 4000;
-
-app.listen(port,ipAddress, () => {
-    console.log(`Server listening on port ${port}` );
-});
+//Connect to the database before listening
+connectDB().then(() => {
+  app.listen(PORT, () => {
+      console.log("listening for requests");
+  })
+})
