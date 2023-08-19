@@ -57,6 +57,6 @@ const panasSchema = new mongoose.Schema({
     },
   });
   
-  const PANAS = mongoose.model('PANAS', panasSchema);
+  const PANAS = mongoose.model('PANAS_3', panasSchema);
   
   module.exports = PANAS;
