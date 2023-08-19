@@ -17,4 +17,4 @@ const questionsSchema = new Schema({
 })
 
 
-module.exports = mongoose.model("Tc0",questionsSchema)
+module.exports = mongoose.model("Tc4",questionsSchema)

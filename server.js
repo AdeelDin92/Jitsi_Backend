@@ -16,15 +16,15 @@ async function main() {
 
 //Import Schemas
 const demoSchema = require('./Schemas/demoSchema')
-const Tc0 = require("./Schemas/questionairSchema_0")
-const Tc1 = require ("./Schemas/questionairSchema_1")
-const Tc2 = require ("./Schemas/questionairSchema_2")
-const Tc3 = require ("./Schemas/questionairSchema_3")
+const Tc1 = require("./Schemas/questionairSchema1")
+const Tc2 = require ("./Schemas/questionairSchema2")
+const Tc3 = require ("./Schemas/questionairSchema3")
+const Tc4 = require ("./Schemas/questionairSchema4")
 
-const PANAS_0 = require('./Schemas/panasSchema_0');
-const PANAS_1 = require('./Schemas/panasSchema_1');
-const PANAS_2 = require('./Schemas/panasSchema_2');
-const PANAS_3 = require('./Schemas/panasSchema_3');
+const PANAS1 = require('./Schemas/panasSchema1');
+const PANAS2 = require('./Schemas/panasSchema2');
+const PANAS3 = require('./Schemas/panasSchema3');
+const PANAS4 = require('./Schemas/panasSchema4');
 
 
 
@@ -62,7 +62,7 @@ app.post("/Demographics", async (req , res) => {
 
 app.post("/Questionair_1", async (req ,res) => {   
     
-  let defaultQuestionair = new Tc0({
+  let defaultQuestionair = new Tc1({
     
     Q1:req.body.Q1,
     Q2:req.body.Q2,
@@ -85,7 +85,7 @@ app.post("/Questionair_1", async (req ,res) => {
 
 app.post("/Questionair_2", async (req ,res) => {   
     
-  let defaultQuestionair = new Tc1({
+  let defaultQuestionair = new Tc2({
     
     Q1:req.body.Q1,
     Q2:req.body.Q2,
@@ -108,7 +108,7 @@ app.post("/Questionair_2", async (req ,res) => {
 
 app.post("/Questionair_3", async (req ,res) => {   
     
-  let defaultQuestionair = new Tc2({
+  let defaultQuestionair = new Tc3({
     
     Q1:req.body.Q1,
     Q2:req.body.Q2,
@@ -132,7 +132,7 @@ app.post("/Questionair_3", async (req ,res) => {
 
 app.post("/Questionair_4", async (req ,res) => {   
     
-  let defaultQuestionair = new Tc3({
+  let defaultQuestionair = new Tc4({
     
     Q1:req.body.Q1,
     Q2:req.body.Q2,
@@ -170,7 +170,7 @@ app.post('/submit_panas_1', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS_0({
+  const newPANAS = new PANAS1({
     active: parseInt(active),
     interested: parseInt(interested),
     excited: parseInt(excited),
@@ -211,7 +211,7 @@ app.post('/submit_panas_2', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS_1({
+  const newPANAS = new PANAS2({
     active: parseInt(active),
     interested: parseInt(interested),
     excited: parseInt(excited),
@@ -257,7 +257,7 @@ app.post('/submit_panas_3', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS_2({
+  const newPANAS = new PANAS3({
     active: parseInt(active),
     interested: parseInt(interested),
     excited: parseInt(excited),
@@ -302,7 +302,7 @@ app.post('/submit_panas_4', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS_3({
+  const newPANAS = new PANAS4({
     active: parseInt(active),
     interested: parseInt(interested),
     excited: parseInt(excited),
