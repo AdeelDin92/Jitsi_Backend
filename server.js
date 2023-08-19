@@ -15,7 +15,7 @@ async function main() {
 }
 
 //Import Schemas
-const demoSchema = require('./Schemas/demoSchema')
+const demographics = require('./Schemas/demoSchema')
 const Tc1 = require("./Schemas/questionairSchema1")
 const Tc2 = require ("./Schemas/questionairSchema2")
 const Tc3 = require ("./Schemas/questionairSchema3")
@@ -42,7 +42,7 @@ app.post("/Demographics", async (req , res) => {
 
 
     
-    let demo = new demoSchema({
+    let demo = new demographics({
         Q1:req.body.Q1,
         Q2:req.body.Q2,
         Q3:req.body.Q3,

@@ -15,4 +15,4 @@ const questionsSchema = new Schema({
 })
 
 
-module.exports = mongoose.model("demoSchema",questionsSchema)
+module.exports = mongoose.model("demographics",questionsSchema)
