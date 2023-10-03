@@ -51,7 +51,12 @@ app.post("/Demographics", async (req , res) => {
         Q4:req.body.Q4,
         Q5:req.body.Q5,
         Q6:req.body.Q6,
-        Q7:req.body.Q7
+        Q7:req.body.Q7,
+        Q8:req.body.Q8,       
+        Q9:req.body.Q9,
+        Q10:req.body.Q10,
+        Q8_text:req.body.Q8_text,
+        Q10_text:req.body.Q10_text
 
 
         });       
@@ -155,7 +160,7 @@ app.post("/Questionair_4", async (req ,res) => {
 
 
 
-// Handle condition 1 panas submission and save the data to MongoDB
+/// Handle condition 1 panas submission and save the data to MongoDB
 app.post('/submit_panas_1', async (req, res) => {
   const {
     active,
@@ -172,31 +177,35 @@ app.post('/submit_panas_1', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS1({
-    active: parseInt(active),
-    interested: parseInt(interested),
-    excited: parseInt(excited),
-    determined: parseInt(determined),
-    inspired: parseInt(inspired),
-    attentive: parseInt(attentive),
-    distressed: parseInt(distressed),
-    annoyed: parseInt(annoyed),
-    scared: parseInt(scared),
-    irritated: parseInt(irritated),
-    nervous: parseInt(nervous),
-    guilty: parseInt(guilty),
-  });
+  try {
+    const newPANAS = new PANAS1({
+      active: parseInt(active),
+      interested: parseInt(interested),
+      excited: parseInt(excited),
+      determined: parseInt(determined),
+      inspired: parseInt(inspired),
+      attentive: parseInt(attentive),
+      distressed: parseInt(distressed),
+      annoyed: parseInt(annoyed),
+      scared: parseInt(scared),
+      irritated: parseInt(irritated),
+      nervous: parseInt(nervous),
+      guilty: parseInt(guilty),
+    });
 
-    const panasData = await newPANAS.save() 
-    res.send(req.body)
-    console.log("Saved in database successfully" , panasData)
+    const savedPANAS = await newPANAS.save();
 
- 
+    console.log("Saved in database successfully", savedPANAS);
+    res.status(201).json({ message: "PANAS data saved successfully", savedPANAS });
+  } catch (error) {
+    console.error("Error saving PANAS data:", error);
+    res.status(500).json({ error: "Error saving PANAS data" });
+  }
 });
 
 
-
 // Handle condition 2 panas submission and save the data to MongoDB
+
 app.post('/submit_panas_2', async (req, res) => {
   const {
     active,
@@ -213,26 +222,30 @@ app.post('/submit_panas_2', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS2({
-    active: parseInt(active),
-    interested: parseInt(interested),
-    excited: parseInt(excited),
-    determined: parseInt(determined),
-    inspired: parseInt(inspired),
-    attentive: parseInt(attentive),
-    distressed: parseInt(distressed),
-    annoyed: parseInt(annoyed),
-    scared: parseInt(scared),
-    irritated: parseInt(irritated),
-    nervous: parseInt(nervous),
-    guilty: parseInt(guilty),
-  });
+  try {
+    const newPANAS = new PANAS2({
+      active: parseInt(active),
+      interested: parseInt(interested),
+      excited: parseInt(excited),
+      determined: parseInt(determined),
+      inspired: parseInt(inspired),
+      attentive: parseInt(attentive),
+      distressed: parseInt(distressed),
+      annoyed: parseInt(annoyed),
+      scared: parseInt(scared),
+      irritated: parseInt(irritated),
+      nervous: parseInt(nervous),
+      guilty: parseInt(guilty),
+    });
 
-    const panasData = await newPANAS.save() 
-    res.send(req.body)
-    console.log("Saved in database successfully" , panasData)
+    const savedPANAS = await newPANAS.save();
 
- 
+    console.log("Saved in database successfully", savedPANAS);
+    res.status(201).json({ message: "PANAS data saved successfully", savedPANAS });
+  } catch (error) {
+    console.error("Error saving PANAS data:", error);
+    res.status(500).json({ error: "Error saving PANAS data" });
+  }
 });
 
 
@@ -243,6 +256,7 @@ app.post('/submit_panas_2', async (req, res) => {
 
 
 // Handle condition 3 panas submission and save the data to MongoDB
+
 app.post('/submit_panas_3', async (req, res) => {
   const {
     active,
@@ -259,35 +273,36 @@ app.post('/submit_panas_3', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS3({
-    active: parseInt(active),
-    interested: parseInt(interested),
-    excited: parseInt(excited),
-    determined: parseInt(determined),
-    inspired: parseInt(inspired),
-    attentive: parseInt(attentive),
-    distressed: parseInt(distressed),
-    annoyed: parseInt(annoyed),
-    scared: parseInt(scared),
-    irritated: parseInt(irritated),
-    nervous: parseInt(nervous),
-    guilty: parseInt(guilty),
-  });
+  try {
+    const newPANAS = new PANAS3({
+      active: parseInt(active),
+      interested: parseInt(interested),
+      excited: parseInt(excited),
+      determined: parseInt(determined),
+      inspired: parseInt(inspired),
+      attentive: parseInt(attentive),
+      distressed: parseInt(distressed),
+      annoyed: parseInt(annoyed),
+      scared: parseInt(scared),
+      irritated: parseInt(irritated),
+      nervous: parseInt(nervous),
+      guilty: parseInt(guilty),
+    });
 
-    const panasData = await newPANAS.save() 
-    res.send(req.body)
-    console.log("Saved in database successfully" , panasData)
+    const savedPANAS = await newPANAS.save();
 
- 
+    console.log("Saved in database successfully", savedPANAS);
+    res.status(201).json({ message: "PANAS data saved successfully", savedPANAS });
+  } catch (error) {
+    console.error("Error saving PANAS data:", error);
+    res.status(500).json({ error: "Error saving PANAS data" });
+  }
 });
 
 
 
-
-
-
-
 // Handle condition 4 panas submission and save the data to MongoDB
+
 app.post('/submit_panas_4', async (req, res) => {
   const {
     active,
@@ -304,26 +319,30 @@ app.post('/submit_panas_4', async (req, res) => {
     guilty,
   } = req.body;
 
-  const newPANAS = new PANAS4({
-    active: parseInt(active),
-    interested: parseInt(interested),
-    excited: parseInt(excited),
-    determined: parseInt(determined),
-    inspired: parseInt(inspired),
-    attentive: parseInt(attentive),
-    distressed: parseInt(distressed),
-    annoyed: parseInt(annoyed),
-    scared: parseInt(scared),
-    irritated: parseInt(irritated),
-    nervous: parseInt(nervous),
-    guilty: parseInt(guilty),
-  });
+  try {
+    const newPANAS = new PANAS4({
+      active: parseInt(active),
+      interested: parseInt(interested),
+      excited: parseInt(excited),
+      determined: parseInt(determined),
+      inspired: parseInt(inspired),
+      attentive: parseInt(attentive),
+      distressed: parseInt(distressed),
+      annoyed: parseInt(annoyed),
+      scared: parseInt(scared),
+      irritated: parseInt(irritated),
+      nervous: parseInt(nervous),
+      guilty: parseInt(guilty),
+    });
 
-    const panasData = await newPANAS.save() 
-    res.send(req.body)
-    console.log("Saved in database successfully" , panasData)
+    const savedPANAS = await newPANAS.save();
 
- 
+    console.log("Saved in database successfully", savedPANAS);
+    res.status(201).json({ message: "PANAS data saved successfully", savedPANAS });
+  } catch (error) {
+    console.error("Error saving PANAS data:", error);
+    res.status(500).json({ error: "Error saving PANAS data" });
+  }
 });
 
 

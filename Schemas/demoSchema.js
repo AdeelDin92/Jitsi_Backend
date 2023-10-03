@@ -4,14 +4,18 @@ const { Schema } = mongoose;
 
 const questionsSchema = new Schema({
     
-    Q1:  String,
-    Q2: String,
-    Q3: String,
+    Q1: String,
+    Q2:String,
+    Q3:String,
     Q4:String,
     Q5:String,
     Q6:String,
-    Q7:String // String is shorthand for {type: String}
-  
+    Q7:String, // String is shorthand for {type: String}
+    Q8:String,
+    Q8_text:String,
+    Q9:String,
+    Q10:String,
+    Q10_text:String
 })
 
 
