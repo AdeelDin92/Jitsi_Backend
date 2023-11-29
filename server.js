@@ -7,6 +7,7 @@ require('dotenv').config(); // Load environment variables from .env file
 
 const PORT = process.env.PORT || 4000
 
+// Database connection 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
@@ -349,7 +350,7 @@ app.post('/submit_panas_4', async (req, res) => {
 
 
 
-//Connect to the database before listening
+//Connection to the database before listening
 connectDB().then(() => {
   app.listen(PORT, () => {
       console.log("listening for requests");
